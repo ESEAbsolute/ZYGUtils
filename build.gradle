@@ -8,30 +8,34 @@ group = project.maven_group
 
 def getCustomBuildName() {
     def isBuilding = gradle.startParameter.taskNames.any { it.contains('build') || it.contains('assemble') }
-    def stdout = new ByteArrayOutputStream()
+    println("Task names: " + gradle.startParameter.taskNames)
+    def stdoutStr = ""
     try {
-        exec {
-            commandLine 'git', 'status', '--porcelain'
-            standardOutput = stdout
-        }
+        def proc = 'git status --porcelain'.execute()
+        proc.waitFor()
+        stdoutStr = proc.in.text.trim()
     } catch (Exception e) {
+        println("Git status error: " + e)
         return null
     }
     
-    if (stdout.toString().trim().length() > 0) {
+    if (stdoutStr.length() > 0) {
         if (isBuilding) {
-            throw new GradleException("有未提交的文件，不允许构建！请先 commit 你的更改。")
+            throw new GradleException("Commit before building!")
         } else {
             return null
         }
     }
     
-    stdout.reset()
-    exec {
-        commandLine 'git', 'rev-parse', 'HEAD'
-        standardOutput = stdout
+    def hash = ""
+    try {
+        def proc = 'git rev-parse HEAD'.execute()
+        proc.waitFor()
+        hash = proc.in.text.trim()
+    } catch (Exception e) {
+        println("Git rev-parse error: " + e)
+        return null
     }
-    def hash = stdout.toString().trim()
     if (hash.length() >= 4) {
         hash = hash.substring(0, 4)
     } else {
@@ -65,6 +69,7 @@ def getCustomBuildName() {
 }
 
 def customName = getCustomBuildName()
+println("Custom Name is: " + customName)
 
 base {
     archivesName = customName != null ? customName : project.archives_base_name
@@ -72,6 +77,7 @@ base {
 
 tasks.withType(AbstractArchiveTask).configureEach {
     if (customName != null) {
+        archiveBaseName.set(customName)
         archiveVersion.set("")
         archiveAppendix.set("")
     }
