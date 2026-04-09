@@ -8,7 +8,6 @@ group = project.maven_group
 
 def getCustomBuildName() {
     def isBuilding = gradle.startParameter.taskNames.any { it.contains('build') || it.contains('assemble') }
-    println("Task names: " + gradle.startParameter.taskNames)
     def stdoutStr = ""
     try {
         def proc = 'git status --porcelain'.execute()
@@ -21,7 +20,7 @@ def getCustomBuildName() {
     
     if (stdoutStr.length() > 0) {
         if (isBuilding) {
-            throw new GradleException("Commit before building!")
+            throw new GradleException("有文件没 commit，不允许构建！")
         } else {
             return null
         }
@@ -69,7 +68,6 @@ def getCustomBuildName() {
 }
 
 def customName = getCustomBuildName()
-println("Custom Name is: " + customName)
 
 base {
     archivesName = customName != null ? customName : project.archives_base_name
