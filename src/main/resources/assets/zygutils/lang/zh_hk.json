@@ -1,0 +1,61 @@
+{
+  "config.zygutils.title": "ZYGUtils 配置",
+  "config.zygutils.general": "常規設置",
+  "config.zygutils.master_switch": "總開關",
+  
+  "config.zygutils.element_bank": "元素銀行配置",
+  "config.zygutils.mode": "模式",
+  "config.zygutils.mode.store_all": "全部存儲",
+  "config.zygutils.mode.ignore": "不處理",
+  "config.zygutils.mode.alchemist": "煉丹師模式",
+  
+  "config.zygutils.metal": "金元素",
+  "config.zygutils.wood": "木元素",
+  "config.zygutils.water": "水元素",
+  "config.zygutils.fire": "火元素",
+  "config.zygutils.earth": "土元素",
+  
+  "config.zygutils.refined_metal": "精煉金元素",
+  "config.zygutils.refined_wood": "精煉木元素",
+  "config.zygutils.refined_water": "精煉水元素",
+  "config.zygutils.refined_fire": "精煉火元素",
+  "config.zygutils.refined_earth": "精煉土元素",
+  
+  "config.zygutils.strategy.keep_10_15": "保留 10~15 個",
+  "config.zygutils.strategy.keep_above_10": "保留 10 個以上",
+  "config.zygutils.strategy.store_all": "全部存儲",
+  "config.zygutils.strategy.ignore": "全部無視",
+  "config.zygutils.strategy.ignore_short": "無視",
+  
+  "config.zygutils.bank": "錢莊配置",
+  "config.zygutils.store_copper": "存儲所有銅錢",
+  "config.zygutils.store_gold": "存儲所有元寶",
+  "config.zygutils.store_silver": "存儲所有銀票",
+  "config.zygutils.auto_disable_silver": "手動打開時禁用銀票存儲 60s",
+  
+  "config.zygutils.debug": "調試功能",
+  "config.zygutils.debug_gui": "GUI 開啟時調試信息",
+  "config.zygutils.debug_trigger": "觸發存儲時調試信息",
+
+  "text.zygutils.config.saved": "配置已保存並退出",
+  "text.zygutils.wheel.element": "元素存儲",
+  "text.zygutils.wheel.alchemist": "煉丹模式",
+  "text.zygutils.wheel.refined": "精煉元素",
+  "text.zygutils.wheel.bank": "錢莊配置",
+  
+  "text.zygutils.wheel.on": "開",
+  "text.zygutils.wheel.off": "關",
+  "text.zygutils.wheel.enabled": "是否開啟：",
+  "text.zygutils.wheel.mode": "存儲模式：",
+  
+  "text.zygutils.wheel.metal": "金：",
+  "text.zygutils.wheel.wood": "木：",
+  "text.zygutils.wheel.water": "水：",
+  "text.zygutils.wheel.fire": "火：",
+  "text.zygutils.wheel.earth": "土：",
+  
+  "text.zygutils.wheel.copper": "銅錢：",
+  "text.zygutils.wheel.gold": "元寶：",
+  "text.zygutils.wheel.silver": "銀票：",
+  "text.zygutils.wheel.protect": "取出保護："
+}

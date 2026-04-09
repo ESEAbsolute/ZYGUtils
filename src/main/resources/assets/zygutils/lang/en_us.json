@@ -1,0 +1,61 @@
+{
+  "config.zygutils.title": "ZYGUtils Configuration",
+  "config.zygutils.general": "General Settings",
+  "config.zygutils.master_switch": "Master Switch",
+  
+  "config.zygutils.element_bank": "Element Bank Config",
+  "config.zygutils.mode": "Mode",
+  "config.zygutils.mode.store_all": "Store All",
+  "config.zygutils.mode.ignore": "Ignore",
+  "config.zygutils.mode.alchemist": "Alchemist Mode",
+  
+  "config.zygutils.metal": "Metal Element",
+  "config.zygutils.wood": "Wood Element",
+  "config.zygutils.water": "Water Element",
+  "config.zygutils.fire": "Fire Element",
+  "config.zygutils.earth": "Earth Element",
+  
+  "config.zygutils.refined_metal": "Refined Metal",
+  "config.zygutils.refined_wood": "Refined Wood",
+  "config.zygutils.refined_water": "Refined Water",
+  "config.zygutils.refined_fire": "Refined Fire",
+  "config.zygutils.refined_earth": "Refined Earth",
+  
+  "config.zygutils.strategy.keep_10_15": "Keep 10~15",
+  "config.zygutils.strategy.keep_above_10": "Keep >10",
+  "config.zygutils.strategy.store_all": "Store All",
+  "config.zygutils.strategy.ignore": "Ignore All",
+  "config.zygutils.strategy.ignore_short": "Ignore",
+  
+  "config.zygutils.bank": "Bank Config",
+  "config.zygutils.store_copper": "Store Copper Cash",
+  "config.zygutils.store_gold": "Store Gold Ingot",
+  "config.zygutils.store_silver": "Store Silver Ticket",
+  "config.zygutils.auto_disable_silver": "Disable Silver Ticket Storage 60s when manually opened",
+  
+  "config.zygutils.debug": "Debug Features",
+  "config.zygutils.debug_gui": "Debug Info on GUI Open",
+  "config.zygutils.debug_trigger": "Debug Info on Storage Trigger",
+
+  "text.zygutils.config.saved": "Configuration saved and exited",
+  "text.zygutils.wheel.element": "Element Store",
+  "text.zygutils.wheel.alchemist": "Alchemist",
+  "text.zygutils.wheel.refined": "Refined Elements",
+  "text.zygutils.wheel.bank": "Bank Config",
+  
+  "text.zygutils.wheel.on": "ON",
+  "text.zygutils.wheel.off": "OFF",
+  "text.zygutils.wheel.enabled": "Enabled: ",
+  "text.zygutils.wheel.mode": "Mode: ",
+  
+  "text.zygutils.wheel.metal": "Metal: ",
+  "text.zygutils.wheel.wood": "Wood: ",
+  "text.zygutils.wheel.water": "Water: ",
+  "text.zygutils.wheel.fire": "Fire: ",
+  "text.zygutils.wheel.earth": "Earth: ",
+  
+  "text.zygutils.wheel.copper": "Copper: ",
+  "text.zygutils.wheel.gold": "Gold: ",
+  "text.zygutils.wheel.silver": "Silver: ",
+  "text.zygutils.wheel.protect": "Protection: "
+}

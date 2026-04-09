@@ -1,0 +1,31 @@
+{
+    "schemaVersion": 1,
+    "id": "zygutils",
+    "version": "${version}",
+    "name": "ZYGUtils",
+    "description": "",
+    "authors": [],
+    "contact": {},
+    "license": "MIT",
+    "icon": "assets/zygutils/icon.png",
+    "environment": "client",
+    "entrypoints": {
+        "client": [
+            "icu.eseabs0.zygutils.ZYGUtilsClientHolder"
+        ],
+        "main": [
+            "icu.eseabs0.zygutils.ZYGUtils"
+        ],
+        "modmenu": [
+            "icu.eseabs0.zygutils.config.ModMenuIntegration"
+        ]
+    },
+    "mixins": [
+        "zygutils.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "fabric-api": "*",
+        "minecraft": "${minecraft_version}"
+    }
+}
