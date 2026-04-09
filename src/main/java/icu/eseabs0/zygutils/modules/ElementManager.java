@@ -8,6 +8,7 @@ import icu.eseabs0.zygutils.types.ElementType;
 import icu.eseabs0.zygutils.registry.ElementRegistry;
 import icu.eseabs0.zygutils.utils.LogUtils;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.ChatScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -35,7 +36,8 @@ public final class ElementManager implements UpdateListener {
         MinecraftClient client = MinecraftClient.getInstance();
         if (client.player == null) return;
 
-        if (client.currentScreen instanceof HandledScreen) {
+        if (client.currentScreen instanceof HandledScreen ||
+                client.currentScreen instanceof ChatScreen) {
             return;
         }
 
