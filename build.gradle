@@ -8,7 +8,7 @@ group = project.maven_group
 
 def getCustomBuildName() {
     def isBuilding = gradle.startParameter.taskNames.any { it.contains('build') || it.contains('assemble') }
-    def stdoutStr = ""
+    def stdoutStr
     try {
         def proc = 'git status --porcelain'.execute()
         proc.waitFor()
@@ -26,7 +26,7 @@ def getCustomBuildName() {
         }
     }
     
-    def hash = ""
+    def hash
     try {
         def proc = 'git rev-parse HEAD'.execute()
         proc.waitFor()
