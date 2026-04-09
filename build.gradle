@@ -72,35 +72,20 @@ def getCustomBuildName() {
 
 def customName = getCustomBuildName()
 
-tasks.register('backupLegacyBuilds') {
-    doLast {
-        def libsDir = file("$buildDir/libs")
-        def legacyDir = file("$buildDir/legacybuilds")
-        
-        if (libsDir.exists() && libsDir.listFiles().length > 0) {
-            if (!legacyDir.exists()) {
-                legacyDir.mkdirs()
-            }
-            
-            def dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss")
-            def timestamp = dateFormat.format(new Date())
-            
-            libsDir.listFiles().each { file ->
-                if (file.name.endsWith('.jar')) {
-                    def newName = file.name.replace('.jar', "_${timestamp}.jar")
-                    def destFile = new File(legacyDir, newName)
-                    file.renameTo(destFile)
-                }
-            }
-        }
-    }
+tasks.register('copyToLegacyBuilds', Copy) {
+    def dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss")
+    def timestamp = dateFormat.format(new Date())
+    
+    from "$buildDir/libs"
+    into "$buildDir/legacybuilds/$timestamp"
+    include "*.jar"
 }
 
 tasks.named('build') {
-    dependsOn 'backupLegacyBuilds'
+    finalizedBy 'copyToLegacyBuilds'
 }
 tasks.named('assemble') {
-    dependsOn 'backupLegacyBuilds'
+    finalizedBy 'copyToLegacyBuilds'
 }
 
 base {
