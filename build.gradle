@@ -1,3 +1,6 @@
+import java.text.SimpleDateFormat
+import java.util.Date
+
 plugins {
     id 'fabric-loom' version '1.15-SNAPSHOT'
     id 'maven-publish'
@@ -68,6 +71,37 @@ def getCustomBuildName() {
 }
 
 def customName = getCustomBuildName()
+
+tasks.register('backupLegacyBuilds') {
+    doLast {
+        def libsDir = file("$buildDir/libs")
+        def legacyDir = file("$buildDir/legacybuilds")
+        
+        if (libsDir.exists() && libsDir.listFiles().length > 0) {
+            if (!legacyDir.exists()) {
+                legacyDir.mkdirs()
+            }
+            
+            def dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss")
+            def timestamp = dateFormat.format(new Date())
+            
+            libsDir.listFiles().each { file ->
+                if (file.name.endsWith('.jar')) {
+                    def newName = file.name.replace('.jar', "_${timestamp}.jar")
+                    def destFile = new File(legacyDir, newName)
+                    file.renameTo(destFile)
+                }
+            }
+        }
+    }
+}
+
+tasks.named('build') {
+    dependsOn 'backupLegacyBuilds'
+}
+tasks.named('assemble') {
+    dependsOn 'backupLegacyBuilds'
+}
 
 base {
     archivesName = customName != null ? customName : project.archives_base_name
