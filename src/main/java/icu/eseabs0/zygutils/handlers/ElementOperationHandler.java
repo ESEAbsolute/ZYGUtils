@@ -82,7 +82,7 @@ public final class ElementOperationHandler {
         DECIDED.set(false);
         networkHandler.sendCommand("menu6");
 
-        TIMEOUT_FUTURE = SCHEDULER.schedule(ElementOperationHandler::timeout, 3, TimeUnit.SECONDS);
+        TIMEOUT_FUTURE = SCHEDULER.schedule(ElementOperationHandler::timeout, 5, TimeUnit.SECONDS);
     }
 
     private void performElementBankOperation(int slot) {

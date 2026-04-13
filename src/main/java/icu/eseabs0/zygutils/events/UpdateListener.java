@@ -7,13 +7,18 @@ import java.util.EventListener;
 
 public interface UpdateListener extends EventListener {
     void onUpdate();
+
     class UpdateEvent extends Event<UpdateListener> {
-        public static final UpdateEvent INSTANCE = new UpdateEvent();
         @Override
         public void fire(ArrayList<UpdateListener> listeners) {
-            for(UpdateListener listener : listeners) { listener.onUpdate(); }
+            for(UpdateListener listener : listeners) {
+                listener.onUpdate();
+            }
         }
+
         @Override
-        public Class<UpdateListener> getListenerType() { return UpdateListener.class; }
+        public Class<UpdateListener> getListenerType() {
+            return UpdateListener.class;
+        }
     }
 }

@@ -7,7 +7,7 @@ public class ZYGUtilsClientHolder implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        if (initialized) throw new RuntimeException("EleMgrInitializer.onInitializeClient() ran twice!");
+        if (initialized) throw new RuntimeException("onInitializeClient() ran twice!");
         ZYGUtilsClient.INSTANCE.onInitialize();
         initialized = true;
     }

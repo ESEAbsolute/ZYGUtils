@@ -14,6 +14,6 @@ public class ClientPlayerEntityMixin {
             target = "Lnet/minecraft/client/network/AbstractClientPlayerEntity;tick()V",
             ordinal = 0), method = "tick()V")
     private void onTick(CallbackInfo ci) {
-        EventManager.fire(UpdateListener.UpdateEvent.INSTANCE);
+        EventManager.fire(new UpdateListener.UpdateEvent());
     }
 }

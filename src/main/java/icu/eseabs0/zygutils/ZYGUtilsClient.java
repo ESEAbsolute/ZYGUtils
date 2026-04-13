@@ -1,5 +1,6 @@
 package icu.eseabs0.zygutils;
 
+import icu.eseabs0.zygutils.events.WorldTimeUpdateListener;
 import icu.eseabs0.zygutils.eventsystem.EventManager;
 import icu.eseabs0.zygutils.events.MouseScrollListener;
 import icu.eseabs0.zygutils.events.UpdateListener;
@@ -42,6 +43,7 @@ public enum ZYGUtilsClient {
 
         GlobalTick globalTick = GlobalTick.getInstance();
         eventManager.add(UpdateListener.class, globalTick);
+        eventManager.add(WorldTimeUpdateListener.class, globalTick);
 
         ElementManager elementManager = ElementManager.getInstance();
         eventManager.add(UpdateListener.class, elementManager);
