@@ -96,6 +96,15 @@ public class WheelConfig implements MouseScrollListener, UpdateListener {
             } else if (isConfigMode) {
                 // Toggle current selection
                 toggleSelection();
+            } else {
+                ZYGConfig.INSTANCE.masterSwitch = !ZYGConfig.INSTANCE.masterSwitch;
+                client.player.sendMessage(
+                    Text.translatable("config.zygutils.master_switch").append(
+                        ZYGConfig.INSTANCE.masterSwitch
+                            ? Text.translatable("text.zygutils.wheel.on")
+                            : Text.translatable("text.zygutils.wheel.off")
+                ), true);
+                ZYGConfig.save();
             }
         } else if (!isTogglePressed) {
             toggleKeyPressed = false;
