@@ -85,12 +85,9 @@ public final class ElementManager implements UpdateListener {
                         }
                     } else if (strategy == RefinedElementStrategy.KEEP_ABOVE_10) {
                         if (count < 10) {
-                            int clicks = 10 - count;
-                            for (int i = 0; i < clicks; i++) {
-                                slots.add(type.getRow() * 9 + ADD_REFINED.getColumn());
-                            }
+                            slots.add(type.getRow() * 9 + ADD_REFINED.getColumn());
                             if (ZYGConfig.INSTANCE.debugElementDecision) {
-                                LogUtils.sendMessage("当前 " + type.name() + "：" + count + " 个；执行操作 ADD_REFINED x" + clicks);
+                                LogUtils.sendMessage("当前 " + type.name() + "：" + count + " 个；执行操作 ADD_REFINED x1");
                             }
                         } else {
                             if (ZYGConfig.INSTANCE.debugElementDecision) {

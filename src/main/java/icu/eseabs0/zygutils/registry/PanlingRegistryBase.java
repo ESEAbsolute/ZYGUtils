@@ -43,7 +43,7 @@ public abstract class PanlingRegistryBase<T extends PositionedItemType> {
                     "translate": "pl.item.name.relifestone"
                 }'
             },
-            id: "panling: relive_stone"
+            id: "panling:relive_stone"
         }
         =================================================
         where "id" can be accessed by .getNBT().getString("id")
