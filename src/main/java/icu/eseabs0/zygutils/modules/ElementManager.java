@@ -37,17 +37,8 @@ public final class ElementManager implements UpdateListener {
         MinecraftClient client = MinecraftClient.getInstance();
         if (client.player == null) return;
 
-        if (client.currentScreen instanceof HandledScreen ||
-                client.currentScreen instanceof ChatScreen) {
+        if (client.currentScreen != null) {
             return;
-        } else {
-            ClientPlayerEntity player = client.player;
-            if (client.currentScreen != null) {
-                player.sendMessage(Text.of(client.currentScreen.getClass().getName()));
-                player.sendMessage(Text.of(client.currentScreen.getClass().getTypeName()));
-            } else {
-                player.sendMessage(Text.of("null screen"));
-            }
         }
 
         long masterTick = GlobalTick.getInstance().getMasterTick();

@@ -57,8 +57,7 @@ public final class CashManager implements UpdateListener {
         MinecraftClient client = MinecraftClient.getInstance();
         if (client.player == null) return;
 
-        if (client.currentScreen instanceof HandledScreen ||
-                client.currentScreen instanceof ChatScreen) {
+        if (client.currentScreen != null) {
             return;
         }
 
