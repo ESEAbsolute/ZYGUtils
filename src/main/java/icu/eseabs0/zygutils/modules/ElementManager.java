@@ -13,6 +13,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
@@ -39,6 +40,14 @@ public final class ElementManager implements UpdateListener {
         if (client.currentScreen instanceof HandledScreen ||
                 client.currentScreen instanceof ChatScreen) {
             return;
+        } else {
+            ClientPlayerEntity player = client.player;
+            if (client.currentScreen != null) {
+                player.sendMessage(Text.of(client.currentScreen.getClass().getName()));
+                player.sendMessage(Text.of(client.currentScreen.getClass().getTypeName()));
+            } else {
+                player.sendMessage(Text.of("null screen"));
+            }
         }
 
         long masterTick = GlobalTick.getInstance().getMasterTick();
